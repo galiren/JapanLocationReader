@@ -27,3 +27,7 @@ Should have JRE `21` or newer installed.
 ## Usage
 
 Refer `java -jar <jar file> --help`.
+
+The generated db file content is like below:
+
+<center><img src="./arts/result.png" width="80%"></center>
