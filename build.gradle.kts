@@ -55,6 +55,7 @@ tasks.named("build") {
 
 dependencies {
     implementation("org.apache.pdfbox:pdfbox:3.0.3")
+    implementation("org.xerial:sqlite-jdbc:3.47.2.0")
     testImplementation(kotlin("test"))
 }
 
