@@ -9,7 +9,7 @@ import java.io.File
 private const val REGION_NAME = "region"
 
 object LocationInfoParser {
-    fun parseAndExportToJson(
+    fun parseAndExportToYaml(
         document: PDDocument,
         stripArea: Rectangle2D,
         outputPath: String,

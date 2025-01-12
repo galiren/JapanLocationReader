@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
         Loader.loadPDF(pdfFile).use { document ->
             val firstLocationListPage = document.getPage(7).mediaBox
             val rect: Rectangle2D = Rectangle2D.Float(0F, 0F, firstLocationListPage.width, firstLocationListPage.height)
-            LocationInfoParser.parseAndExportToJson(document, rect, args[2])
+            LocationInfoParser.parseAndExportToYaml(document, rect, args[2])
         }
     } catch (_: Exception) {
         println(PDF_READ_ERROR_MESSAGE)
