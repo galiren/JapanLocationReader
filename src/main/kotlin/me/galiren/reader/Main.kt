@@ -14,7 +14,7 @@ private const val HELP_MESSAGE: String = """
     help: print this help info. --help or -h is also acceptable. In this case, the remaining arguments will be omitted
     file path: the file path of GAZETTEER OF JAPAN <https://www.gsi.go.jp/common/000238259.pdf>
 
-    arg2: the desired output file path.
+    arg2: the desired output database file path.
 """
 
 private const val PDF_READ_ERROR_MESSAGE: String = """
