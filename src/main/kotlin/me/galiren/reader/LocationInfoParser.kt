@@ -20,7 +20,7 @@ object LocationInfoParser {
         try {
             val connection = DriverManager.getConnection(url)
             val sql = "CREATE TABLE IF NOT EXISTS locations (id TEXT PRIMARY KEY, kanji TEXT NOT NULL, " +
-                "kana TEXT NOT NULL, classification TEXT NOT NULL)"
+                "kana TEXT NOT NULL, romaji TEXT NOT NULL, classification TEXT NOT NULL)"
             val stmt = connection.createStatement()
             stmt.execute(sql)
             return connection
@@ -40,7 +40,7 @@ object LocationInfoParser {
         require(connection != null) {
             println(GET_SQLITE_CONNECTION_EXCEPTION)
         }
-        val insertSql = "INSERT INTO locations(id,kanji,kana,classification) VALUES(?, ?, ?, ?)"
+        val insertSql = "INSERT INTO locations(id,kanji,kana,romaji,classification) VALUES(?, ?, ?, ?, ?)"
         val pstmt = connection.prepareStatement(insertSql)
         val uuidSet = HashSet<String>()
         val stripper = PDFTextStripperByArea()
@@ -71,7 +71,8 @@ object LocationInfoParser {
                     pstmt.setString(1, uuid)
                     pstmt.setString(2, location.kanji)
                     pstmt.setString(3, location.kana)
-                    pstmt.setString(4, location.classification)
+                    pstmt.setString(4, location.romaji)
+                    pstmt.setString(5, location.classification)
                     pstmt.executeUpdate()
                 }
                 return@forEachIndexed
