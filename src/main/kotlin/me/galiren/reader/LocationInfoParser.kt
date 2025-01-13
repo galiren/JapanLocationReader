@@ -19,7 +19,7 @@ object LocationInfoParser {
         val url = "jdbc:sqlite:locations.db"
         try {
             val connection = DriverManager.getConnection(url)
-            val sql = "CREATE TABLE IF NOT EXISTS locations (id TEXT PRIMARY KEY, kanji TEXT NOT NULL, " +
+            val sql = "CREATE TABLE IF NOT EXISTS locations (id TEXT NOT NULL PRIMARY KEY, kanji TEXT NOT NULL, " +
                 "kana TEXT NOT NULL, romaji TEXT NOT NULL, classification TEXT NOT NULL)"
             val stmt = connection.createStatement()
             stmt.execute(sql)
